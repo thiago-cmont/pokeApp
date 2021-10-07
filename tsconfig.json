@@ -12,18 +12,7 @@
     "target": "esnext",
     "noImplicitAny": false,
     "resolveJsonModule": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"],
-      "@shared/*": ["src/shared/*"],
-      "@pages/*": ["src/pages/*"],
-      "@components/*": ["src/components/*"],
-      "@dos/*": ["src/dos/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@store/*": ["src/store/*"],
-      "@utils/*": ["src/util/*"],
-      "@modules/*": ["src/modules/*"]
-    },
+    "module": "esnext"
   },
   "exclude": [
     "node_modules",

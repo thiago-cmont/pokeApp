@@ -1,4 +1,4 @@
-## :tw-1f3af: Tecnologias
+## Tecnologias
 
 - [JavaScript;](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Typescript;](https://www.typescriptlang.org/)
@@ -11,7 +11,7 @@
 - [VsCode](https://code.visualstudio.com/) como IDE de desenvolvimento;
 - [Reactotron](https://github.com/infinitered/reactotron) para debug;
 
-## :tw-1f4f1:AMBIENTE REACT NATIVE
+##AMBIENTE REACT NATIVE
 
 |     Windows      |      Linux       |
 | :--------------: | :--------------: |
@@ -27,7 +27,7 @@
 
 Com o intuito de não extender, nem deixar o tutoriol repetitivo, separamos um artigo da [Rocketseat](https://rocketseat.com.br/), para auxiliar na instalação de todo o ambiente React Native citado.
 
-## :tw-1f4f1: CONFIGURAÇÃO ANDROID STUDIO
+## CONFIGURAÇÃO ANDROID STUDIO
 
 Normalmente, só é necessário o download e configuração do SDK do Android, mas para algumas funcionalidades específicas e principalmente emuladores, é necessário instalar a IDE do Android.
 
@@ -35,13 +35,13 @@ Para isso, acesse o tutorial de instalação do [Android Studio](https://develop
 
 Após a instalação, é necessário a [criação do emuladador](https://developer.android.com/studio/run/managing-avds?hl=pt-br&authuser=1).
 
-## :tw-1f527: BRANCHES
+## BRANCHES
 
 - [**develop**](https://github.com/thiago-cmont/pokeApp.git): branch que servirá de base para a criação de novas funcionalidades.
 
 **Todas as branches de feature devem partir da develop.**
 
-## :tw-1f4bb: SCRIPTS DO PROJETO
+## SCRIPTS DO PROJETO
 
 Todos os scripts podem ser vistos no arquivo _package.json_, na raiz do projeto.
 Algumas delas:
@@ -63,7 +63,7 @@ Algumas delas:
 **format**: "prettier --write",
 **lint**: "eslint --fix"
 
-## :tw-1f389: RODANDO O App!
+## RODANDO O App!
 
 - Abra o projeto no VsCode
 

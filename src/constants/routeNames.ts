@@ -1,0 +1,9 @@
+export const MAIN_STACK = {
+  POKEMON: 'POKEMON',
+  POKEMON_LIST: 'POKEMON_LIST',
+  POKEMON_SINGLES: 'POKEMON_SINGLES',
+};
+
+export default {
+  MAIN_STACK,
+};

@@ -46,22 +46,22 @@ Após a instalação, é necessário a [criação do emuladador](https://develop
 Todos os scripts podem ser vistos no arquivo _package.json_, na raiz do projeto.
 Algumas delas:
 
-**android**: "npx cross-env ENVFILE=.env.dev react-native run-android",
-**android:release**: "cd android && npx cross-env ENVFILE=.env.dev ./gradlew app:assembleRelease",
-**android:release:install**: "cd android && adb install app/build/outputs/apk/release/app-release.apk,
-**android:debug**: "cd android && npx cross-env ENVFILE=.env.dev ./gradlew app:assembleDebug",
-**android:gclean**: "cd android && npx cross-env ENVFILE=.env.dev ./gradlew clean",
-**android:clean**: "adb shell pm clear com.pokeapp",
-**ios**: "ENVFILE=.env.dev react-native run-ios",
-**ios:release**: "ENVFILE=.env.dev react-native run-ios --configuration=release",
-**ios:xcclean**: "cd ios && ENVFILE=.env.dev xcodebuild clean -scheme pokeapp -workspace pokeapp.xcworkspace",
-**ios:pod**: "cd ios && npx pod-install",
-**start**: "react-native start",
-**test**: "jest --watch --coverage=false --changedSince=origin/develop",
-**testDebug**: "jest -o --watch --coverage=false",
-**testFinal**: "jest",
-**format**: "prettier --write",
-**lint**: "eslint --fix"
+- **android**: "npx cross-env ENVFILE=.env.dev react-native run-android",
+- **android:release**: "cd android && npx cross-env ENVFILE=.env.dev ./gradlew app:assembleRelease",
+- **android:release:install**: "cd android && adb install app/build/outputs/apk/release/app-release.apk,
+- **android:debug**: "cd android && npx cross-env ENVFILE=.env.dev ./gradlew app:assembleDebug",
+- **android:gclean**: "cd android && npx cross-env ENVFILE=.env.dev ./gradlew clean",
+- **android:clean**: "adb shell pm clear com.pokeapp",
+- **ios**: "ENVFILE=.env.dev react-native run-ios",
+- **ios:release**: "ENVFILE=.env.dev react-native run-ios --configuration=release",
+- **ios:xcclean**: "cd ios && ENVFILE=.env.dev xcodebuild clean -scheme pokeapp -workspace pokeapp.xcworkspace",
+- **ios:pod**: "cd ios && npx pod-install",
+- **start**: "react-native start",
+- **test**: "jest --watch --coverage=false --changedSince=origin/develop",
+- **testDebug**: "jest -o --watch --coverage=false",
+- **testFinal**: "jest",
+- **format**: "prettier --write",
+- **lint**: "eslint --fix"
 
 ## RODANDO O App!
 

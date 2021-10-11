@@ -32,10 +32,12 @@ const PokemonFlatlist: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const paginationHandler = async () => {
-    setIsLoading(true);
-    const newList = await updatePokemonData();
-    if (newList) {
-      setIsLoading(false);
+    if (!isLoading) {
+      setIsLoading(true);
+      const newList = await updatePokemonData();
+      if (newList) {
+        setIsLoading(false);
+      }
     }
   };
 

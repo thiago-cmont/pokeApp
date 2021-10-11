@@ -5,6 +5,7 @@ import SplashScreen from 'react-native-splash-screen';
 
 import PokemonContextProvider from './src/context/pokemonContext';
 import PokeApp from './src/navigations/index';
+import RootTheme from './src/themes/RootTheme';
 
 if (__DEV__) {
   import('./src/config/ReactotronConfig');
@@ -15,9 +16,11 @@ const App: React.FC = () => {
     SplashScreen.hide();
   }, []);
   return (
-    <PokemonContextProvider>
-      <PokeApp />
-    </PokemonContextProvider>
+    <RootTheme>
+      <PokemonContextProvider>
+        <PokeApp />
+      </PokemonContextProvider>
+    </RootTheme>
   );
 };
 

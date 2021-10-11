@@ -5,16 +5,16 @@ import {useContextSelector} from 'use-context-selector';
 
 import {MAIN_STACK} from '../../constants/routeNames';
 import {PokemonContext} from '../../context/pokemonContext';
-import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter';
+import PokemonCard from './PokemonCard';
 import * as S from './styles';
-import {PokemonFlatlistbaseType} from './types';
 
-const PokemonFlatlist: React.FC<PokemonFlatlistbaseType> = ({dataToList}) => {
+const PokemonFlatlist: React.FC = () => {
   const navigation = useNavigation();
   const getPokemonSingle = useContextSelector(
     PokemonContext,
     v => v.getPokemonSingle,
   );
+  const pokemonData = useContextSelector(PokemonContext, v => v.pokemonData);
 
   const onPress = async obj => {
     if (obj) {
@@ -24,96 +24,44 @@ const PokemonFlatlist: React.FC<PokemonFlatlistbaseType> = ({dataToList}) => {
     }
   };
 
-  const pokemonData = useContextSelector(PokemonContext, v => v.pokemonData);
-  const setPokemonData = useContextSelector(
+  const updatePokemonData = useContextSelector(
     PokemonContext,
-    v => v.setPokemonData,
+    v => v.updatePokemonData,
   );
-  const getPokemonData = useContextSelector(
-    PokemonContext,
-    v => v.getPokemonData,
-  );
-  const [offset, setOffset] = useState(20);
+
   const [isLoading, setIsLoading] = useState(false);
 
-  const offsetHandler = async () => {
+  const paginationHandler = async () => {
     setIsLoading(true);
-    const newList = await getPokemonData(offset);
+    const newList = await updatePokemonData();
     if (newList) {
-      const newPokemonList = pokemonData;
-      newPokemonList.push(...newList);
-      setPokemonData(newPokemonList);
-      setOffset(offset + 20);
       setIsLoading(false);
     }
   };
 
-  const TypesBadges = ({types}) => {
-    return (
-      <>
-        {types &&
-          types.map(type => (
-            <S.Badges key={type?.type.name}>
-              <S.BadgesDescription>
-                {capitalizeFirstLetter(type?.type.name)}
-              </S.BadgesDescription>
-            </S.Badges>
-          ))}
-      </>
-    );
-  };
-  const Item = ({obj, index}) => {
-    return (
-      <>
-        <S.ButtonWrapper
-          onPress={() => onPress(obj?.name)}
-          type={obj?.type?.[0].type.name}>
-          {index % 2 === 0 ? (
-            <>
-              <S.Pokemon source={{uri: obj?.image}} />
-              <S.ColumnView>
-                <S.ButtonTitle name={obj?.name}>
-                  {capitalizeFirstLetter(obj?.name)} #{obj.pokedexNumber}
-                </S.ButtonTitle>
-                <S.RowView>
-                  <TypesBadges types={obj?.type} />
-                </S.RowView>
-              </S.ColumnView>
-            </>
-          ) : (
-            <>
-              <S.ColumnView>
-                <S.ButtonTitle name={obj?.name}>
-                  {capitalizeFirstLetter(obj?.name)} #{obj.pokedexNumber}
-                </S.ButtonTitle>
-                <S.RowView>
-                  <TypesBadges types={obj?.type} />
-                </S.RowView>
-              </S.ColumnView>
-              <S.Pokemon source={{uri: obj?.image}} />
-            </>
-          )}
-        </S.ButtonWrapper>
-      </>
-    );
-  };
-
-  const renderItem = (item, index) => <Item obj={item} index={index} />;
-
   const LoadingIndicator = () => {
-    return <S.LoadingIndicator />;
+    return isLoading ? <S.LoadingIndicator /> : null;
   };
 
   return (
     <S.Container>
       <S.List
         showsVerticalScrollIndicator={false}
-        data={dataToList}
-        renderItem={({item, index}) => renderItem(item, index)}
-        key={item => item.id}
-        onEndReached={() => offsetHandler()}
+        data={pokemonData}
+        renderItem={({item, index}) => {
+          return (
+            <PokemonCard
+              obj={item}
+              index={index}
+              onPress={() => onPress(item.name)}
+            />
+          );
+        }}
+        keyExtractor={item => item.id}
+        onEndReached={paginationHandler}
+        ListFooterComponent={LoadingIndicator}
+        removeClippedSubviews
       />
-      {isLoading && <LoadingIndicator />}
     </S.Container>
   );
 };

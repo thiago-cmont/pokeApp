@@ -22,9 +22,10 @@ export interface PokemonContextInterface {
   setPokemonSpecies: React.Dispatch<any>;
   setPokemonEvolutionChain: React.Dispatch<any>;
   setPokemonMoves: React.Dispatch<any>;
-  getPokemonData: (offset?: number) => PokemonListDataType;
+  getPokemonData: () => PokemonListDataType;
   getPokemonSingle: (value: number | string) => PokemonSingleDataType;
   getPokemonSpecies: (value: number | string) => PokemonSepeciesDataType;
   getPokemonEvolutionChain: (value: string) => PokemonEvolutionChainDataType;
   getPokemonMoves: (value: BaseType[]) => Promise<MovesRequestReturnType[]>;
+  updatePokemonData: (offset?: number) => PokemonListDataType;
 }

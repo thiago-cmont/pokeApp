@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {createContext} from 'use-context-selector';
 
 import api from '../../config/api/api';
+import {API_OFFSET} from '../../constants/apiOffset';
 import {PokemonContextInterface} from './types';
 
 export const PokemonContext = createContext({} as PokemonContextInterface);
@@ -13,10 +14,23 @@ const PokemonContextProvider: React.FC = ({children}) => {
   const [pokemonSpecies, setPokemonSpecies] = useState(null);
   const [pokemonEvolutionChain, setPokemonEvolutionChain] = useState(null);
   const [pokemonMoves, setPokemonMoves] = useState(null);
-  async function getPokemonData(offset) {
-    const list = await api.methods.pokemonList.getPokemonList(offset);
+  const [page, setPage] = useState(1);
+
+  async function getPokemonData() {
+    const list = await api.methods.pokemonList.getPokemonList();
     if (list) {
       setPokemonData(list);
+    }
+    return list;
+  }
+
+  async function updatePokemonData() {
+    const list = await api.methods.pokemonList.getPokemonList(
+      page * API_OFFSET,
+    );
+    if (list) {
+      setPokemonData(prevstate => [...prevstate, ...list]);
+      setPage(page + 1);
     }
     return list;
   }
@@ -76,6 +90,7 @@ const PokemonContextProvider: React.FC = ({children}) => {
         getPokemonSpecies,
         getPokemonEvolutionChain,
         getPokemonMoves,
+        updatePokemonData,
       }}>
       {children}
     </PokemonContext.Provider>

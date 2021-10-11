@@ -59,7 +59,7 @@ export const PokemonSizeWrapper = styled(Animated.View)`
   flex-direction: column;
   height: 100%;
   padding-top: ${vs(60)}px;
-  align-items: center;
+  align-items: flex-start;
   padding-left: 15px;
 `;
 

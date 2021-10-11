@@ -18,12 +18,14 @@ const PokemonList: React.FC = () => {
   const LoadingIndicator = () => {
     return <S.LoadingIndicator />;
   };
+
   useEffect(() => {
     if (!pokemonData) {
       setIsLoading(true);
     }
     getPokemonData?.().then(() => setIsLoading(false));
   }, []);
+
   return (
     <>
       {isLoading ? (
@@ -31,7 +33,7 @@ const PokemonList: React.FC = () => {
           <LoadingIndicator />
         </S.LoadingWrapper>
       ) : (
-        <PokemonFlatlist dataToList={pokemonData} />
+        <PokemonFlatlist />
       )}
     </>
   );

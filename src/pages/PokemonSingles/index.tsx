@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
 
 import {s, vs} from 'react-native-size-matters';
@@ -10,10 +10,10 @@ import getPokemonImage from '../../config/api/pokemon/helpers/getPokemonImage';
 import {PokemonContext} from '../../context/pokemonContext';
 import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter';
 import {decimeterToMeter, hectogramsToKilograms} from '../../utils/conversion';
+import {SCREEN_WIDTH} from '../../utils/dimensions';
 import * as S from './styles';
 
 const PokemonSingles: React.FC = () => {
-  const [size, setSize] = useState();
   const pokemonImageSize = useRef(new Animated.Value(0)).current;
   const pokemonSingle = useContextSelector(
     PokemonContext,
@@ -85,11 +85,11 @@ const PokemonSingles: React.FC = () => {
           style={{
             width: pokemonImageSize.interpolate({
               inputRange: [0, 1],
-              outputRange: [150, vs(260)],
+              outputRange: [150, vs(SCREEN_WIDTH * 0.6)],
             }),
             height: pokemonImageSize.interpolate({
               inputRange: [0, 1],
-              outputRange: [150, vs(260)],
+              outputRange: [150, vs(SCREEN_WIDTH * 0.6)],
             }),
           }}>
           <S.PokemonImage

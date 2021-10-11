@@ -1,5 +1,9 @@
 module.exports = {
   preset: 'react-native',
+  setupFiles: [
+    './node_modules/react-native-gesture-handler/jestSetup.js',
+    './__mocks__/reactotron-react-native.js',
+  ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transformIgnorePatterns: [
     'node_modules/(?!(@react-native|react-native' +
@@ -9,6 +13,7 @@ module.exports = {
       '|react-native-iphone-x-helper' +
       '|react-native-size-matters' +
       '|react-native-vector-icons' +
+      '|react-native-gesture-handler' +
       ')/)',
   ],
   moduleNameMapper: {

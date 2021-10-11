@@ -81,4 +81,4 @@ Algumas delas:
 - Execute o emulador previamente configurado ou [utilize um dispositivo fisíco conectado via USB](https://react-native.rocketseat.dev/usb/android)
 
 - Entre na raiz do seu projeto via terminal execute o comando :
-  `$ yarn android:dev`
+  `$ yarn android`

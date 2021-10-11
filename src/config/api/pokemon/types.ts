@@ -4,6 +4,7 @@ export type BaseType = {
   image?: string;
   type?: TypesType;
   pokedexNumber?: string;
+  id?: string;
 };
 export type ResultsType = [BaseType];
 export interface PokemonListInterface {

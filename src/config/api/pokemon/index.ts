@@ -151,6 +151,7 @@ export default function createPokemonData(
             pokemon.type = pokemonSingleData.types;
             pokemon.image = pokemonImage;
             pokemon.pokedexNumber = getPokedexNumber(pokemonId);
+            pokemon.id = pokemonId;
             return pokemon;
           }),
         );

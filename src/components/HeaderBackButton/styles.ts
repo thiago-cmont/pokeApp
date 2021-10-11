@@ -12,7 +12,7 @@ export const HeaderButtonWrapper = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const HeaderButtonIcon = styled(Icon).attrs({
-  color: '#FFF',
+export const HeaderButtonIcon = styled(Icon).attrs(({theme}) => ({
+  color: theme.colors.white,
   size: vs(30),
-})``;
+}))``;

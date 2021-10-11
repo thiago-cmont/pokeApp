@@ -9,7 +9,6 @@ const RootTheme = ({children}) => {
   const combinedTheme = {
     ...colors,
   };
-  console.log(combinedTheme);
   return <ThemeProvider theme={combinedTheme}>{children}</ThemeProvider>;
 };
 

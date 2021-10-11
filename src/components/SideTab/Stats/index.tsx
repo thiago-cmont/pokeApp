@@ -3,6 +3,7 @@ import {Animated} from 'react-native';
 
 import {useContextSelector} from 'use-context-selector';
 
+import {SIDE_TABS} from '../../../constants/sideTabs';
 import {PokemonContext} from '../../../context/pokemonContext';
 import capitalizeFirstLetter from '../../../utils/capitalizeFirstLetter';
 import {SCREEN_WIDTH} from '../../../utils/dimensions';
@@ -80,7 +81,7 @@ const Stats: React.FC = () => {
 
   const pressHandler = () => {
     setIsTabOpenned(true);
-    setTabOpenned('stats');
+    setTabOpenned(SIDE_TABS.STATS);
     tabOpenAnimation();
   };
 
@@ -119,7 +120,7 @@ const Stats: React.FC = () => {
 
   return (
     <>
-      {tabOpenned === 'stats' && isTabOpenned ? (
+      {tabOpenned === SIDE_TABS.STATS && isTabOpenned ? (
         <S.StatsDisplay
           style={{
             width: tabAnimationController.interpolate({

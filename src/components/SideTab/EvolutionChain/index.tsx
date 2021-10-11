@@ -3,6 +3,7 @@ import {Animated, View} from 'react-native';
 
 import {useContextSelector} from 'use-context-selector';
 
+import {SIDE_TABS} from '../../../constants/sideTabs';
 import {PokemonContext} from '../../../context/pokemonContext';
 import {SCREEN_WIDTH} from '../../../utils/dimensions';
 import {SideTabContext} from '../context/sideTabContext';
@@ -83,7 +84,7 @@ const EvolutionChain: React.FC = () => {
 
   const pressHandler = () => {
     setIsTabOpenned(true);
-    setTabOpenned('evolution');
+    setTabOpenned(SIDE_TABS.EVOLUTION);
     tabOpenAnimation();
   };
 
@@ -128,7 +129,7 @@ const EvolutionChain: React.FC = () => {
 
   return (
     <>
-      {tabOpenned === 'evolution' && isTabOpenned ? (
+      {tabOpenned === SIDE_TABS.EVOLUTION && isTabOpenned ? (
         <S.EvolutionDisplay
           style={{
             width: tabAnimationController.interpolate({
@@ -139,29 +140,34 @@ const EvolutionChain: React.FC = () => {
           <S.MinimizeTab onPress={() => tabCloseAnimation()} name="left" />
           {(evolutionChain?.FirstEvolution ||
             evolutionChain?.SecondEvolution) &&
-            animationFinished && (
-              <View>
-                {evolutionChain?.FirstEvolution && (
-                  <Evolutions
-                    firstImage={evolutionChain?.BaseForm.image}
-                    firstName={evolutionChain?.BaseForm.name}
-                    secondName={evolutionChain?.FirstEvolution.name}
-                    secondImage={evolutionChain?.FirstEvolution.image}
-                    minLevel={evolutionChain?.FirstEvolution.min_level}
-                  />
-                )}
-
-                {evolutionChain?.SecondEvolution && (
-                  <Evolutions
-                    firstImage={evolutionChain?.FirstEvolution.image}
-                    firstName={evolutionChain?.FirstEvolution.name}
-                    secondName={evolutionChain?.SecondEvolution.name}
-                    secondImage={evolutionChain?.SecondEvolution.image}
-                    minLevel={evolutionChain?.SecondEvolution.min_level}
-                  />
-                )}
-              </View>
-            )}
+          animationFinished ? (
+            <View>
+              {evolutionChain?.FirstEvolution && (
+                <Evolutions
+                  firstImage={evolutionChain?.BaseForm.image}
+                  firstName={evolutionChain?.BaseForm.name}
+                  secondName={evolutionChain?.FirstEvolution.name}
+                  secondImage={evolutionChain?.FirstEvolution.image}
+                  minLevel={evolutionChain?.FirstEvolution.min_level}
+                />
+              )}
+              {evolutionChain?.SecondEvolution && (
+                <Evolutions
+                  firstImage={evolutionChain?.FirstEvolution.image}
+                  firstName={evolutionChain?.FirstEvolution.name}
+                  secondName={evolutionChain?.SecondEvolution.name}
+                  secondImage={evolutionChain?.SecondEvolution.image}
+                  minLevel={evolutionChain?.SecondEvolution.min_level}
+                />
+              )}
+            </View>
+          ) : (
+            <>
+              {animationFinished && (
+                <S.DontEvolveText>It does not evolve!</S.DontEvolveText>
+              )}
+            </>
+          )}
         </S.EvolutionDisplay>
       ) : (
         <>

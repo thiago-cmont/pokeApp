@@ -3,6 +3,7 @@ import {Animated, View} from 'react-native';
 
 import {useContextSelector} from 'use-context-selector';
 
+import {SIDE_TABS} from '../../../constants/sideTabs';
 import {PokemonContext} from '../../../context/pokemonContext';
 import capitalizeFirstLetter from '../../../utils/capitalizeFirstLetter';
 import {SCREEN_WIDTH} from '../../../utils/dimensions';
@@ -83,7 +84,7 @@ const Moves: React.FC = () => {
 
   const pressHandler = () => {
     setIsTabOpenned(true);
-    setTabOpenned('moves');
+    setTabOpenned(SIDE_TABS.MOVES);
     tabOpenAnimation();
   };
 
@@ -110,7 +111,7 @@ const Moves: React.FC = () => {
 
   return (
     <>
-      {tabOpenned === 'moves' && isTabOpenned ? (
+      {tabOpenned === SIDE_TABS.MOVES && isTabOpenned ? (
         <S.MovesDisplay
           style={{
             width: tabAnimationController.interpolate({

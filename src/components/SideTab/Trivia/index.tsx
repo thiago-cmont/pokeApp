@@ -3,6 +3,7 @@ import {Animated} from 'react-native';
 
 import {useContextSelector} from 'use-context-selector';
 
+import {SIDE_TABS} from '../../../constants/sideTabs';
 import {PokemonContext} from '../../../context/pokemonContext';
 import {SCREEN_WIDTH} from '../../../utils/dimensions';
 import {SideTabContext} from '../context/sideTabContext';
@@ -78,7 +79,7 @@ const Trivia: React.FC = () => {
 
   const pressHandler = () => {
     setIsTabOpenned(true);
-    setTabOpenned('trivia');
+    setTabOpenned(SIDE_TABS.TRIVIA);
     tabOpenAnimation();
   };
 
@@ -102,7 +103,7 @@ const Trivia: React.FC = () => {
 
   return (
     <>
-      {tabOpenned === 'trivia' && isTabOpenned ? (
+      {tabOpenned === SIDE_TABS.TRIVIA && isTabOpenned ? (
         <S.TriviaDisplay
           style={{
             width: tabAnimationController.interpolate({

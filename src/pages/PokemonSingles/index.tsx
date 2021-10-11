@@ -10,7 +10,6 @@ import getPokemonImage from '../../config/api/pokemon/helpers/getPokemonImage';
 import {PokemonContext} from '../../context/pokemonContext';
 import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter';
 import {decimeterToMeter, hectogramsToKilograms} from '../../utils/conversion';
-import {SCREEN_WIDTH} from '../../utils/dimensions';
 import * as S from './styles';
 
 const PokemonSingles: React.FC = () => {
@@ -85,11 +84,11 @@ const PokemonSingles: React.FC = () => {
           style={{
             width: pokemonImageSize.interpolate({
               inputRange: [0, 1],
-              outputRange: [150, vs(SCREEN_WIDTH * 0.6)],
+              outputRange: [150, vs(240)],
             }),
             height: pokemonImageSize.interpolate({
               inputRange: [0, 1],
-              outputRange: [150, vs(SCREEN_WIDTH * 0.6)],
+              outputRange: [150, vs(240)],
             }),
           }}>
           <S.PokemonImage

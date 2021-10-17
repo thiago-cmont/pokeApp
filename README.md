@@ -1,3 +1,6 @@
+## Projeto
+A idéia deste projeto foi fazer uma Pokedex usando a pokeApi(https://pokeapi.co/docs/v2) e usando React Native.
+
 ## Tecnologias
 
 - [JavaScript;](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
@@ -25,7 +28,7 @@
 |      Python      |        -         |
 |        -         |     Watchman     |
 
-Com o intuito de não extender, nem deixar o tutoriol repetitivo, separamos um artigo da [Rocketseat](https://rocketseat.com.br/), para auxiliar na instalação de todo o ambiente React Native citado.
+Com o intuito de não extender, nem deixar o tutorial repetitivo, separamos um artigo da [Rocketseat](https://rocketseat.com.br/), para auxiliar na instalação de todo o ambiente React Native citado.
 
 ## CONFIGURAÇÃO ANDROID STUDIO
 

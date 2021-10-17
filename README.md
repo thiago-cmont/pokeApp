@@ -14,7 +14,7 @@ A idéia deste projeto foi fazer uma Pokedex usando a pokeApi(https://pokeapi.co
 - [VsCode](https://code.visualstudio.com/) como IDE de desenvolvimento;
 - [Reactotron](https://github.com/infinitered/reactotron) para debug;
 
-##AMBIENTE REACT NATIVE
+## AMBIENTE REACT NATIVE
 
 |     Windows      |      Linux       |
 | :--------------: | :--------------: |
